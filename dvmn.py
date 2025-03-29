@@ -2,13 +2,13 @@ import requests
 
 
 def main():
-    urls = ['https://wttr.in/london',
-            'https://wttr.in/svo',
-            'https://wttr.in/Череповец']
-    for url in urls:
-        payload = {"nTqM": "", "lang": "ru"}
-        response = requests.get(url, params=payload)
+    locations = ['london', 'svo', 'Череповец']
+    for location in locations:
+        payload = {'nTqM': '', 'lang': 'ru'}
+        response = requests.get('https://wttr.in/' + location, params=payload)
         response.raise_for_status()
         print(response.text)
+
+
 if __name__ == '__main__':
     main()
